@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global reset and font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body holds the background image */
+body {
+    display: flex;
+    background-image: url('background.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background: #242424;
+    padding: 10px; 
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.logo a {
+    margin-top: 10px;
+    height: 100%;
+    display: inline-block;
+}
+
+/* Logo inside the sidebar */
+.logo img {
+    margin-top: 15px;
+    margin-left: 43px;
+    width: 50%;
+}
+
+/* Menu holds the navigation links */
+.menu {
+    margin-top: 30px;
+    list-style: none;
+    font-size: 30px;
+    padding: 0;
+    width: 100%; 
+}
+
+/* Each menu item */
+.menu li {
+    width: 100%; 
+    text-align: center; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: background 0.3s ease;
+}
+
+/* Links inside menu items */
+.menu li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Active and hovered menu item */
+.menu li.active,
+.menu li:hover {
+    background: #C87C8E;
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Main content holds everything outside the sidebar */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(-50px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Show main content when class is added */
+.main-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dashboard section */
+.dashboard {
+    margin-top: 0px;
+}
+
+/* Dashboard title */
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Stats section holding dashboard cards */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* button for dashboard user */
+.card a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+/* Card holds user stats and categories */
+.card {
+    background: #242424;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Card holds user stats and categories */
+.card div{
+    padding: 10px;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(109, 227, 243, 0.3);
+}
+
+/* Card text */
+.card p {
+    font-size: 16px;
+    color: #C87C8E;
+    font-weight: 500;
+}
+
+/* Card numbers */
+.card h2 {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Empty card styling */
+.card.empty {
+    background: #1b9a4e;
+    opacity: 0.2;
+}
+
+
+
+
+
+
+
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start at the top */
+    align-items: center;
+    width: 100%;
+
+}
+
+/* Title Styling */
+.settings-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px; /* Adds spacing between title & content */
+}
+
+/* Centered Settings Panel */
+.settings-panel {
+    margin-top: 80px;
+    background: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 1000px;
+    height: 400px;
+    text-align: left;
+}
+
+/* Settings Header */
+.settings-header {
+    background: #2e2e2e;
+    padding: 15px 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #444;
+}
+
+.settings-option {
+    position: relative;
+}
+
+.settings-option a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.settings-option a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Light transparent effect */
+    color: #C87C8E; /* Highlight color */
+}
+
+/* Hide sub-options by default */
+.settings-option .sub-options {
+    display: none;
+    background: #3a3a3a;
+    padding-left: 20px;
+}
+
+/* Show sub-options when active */
+.settings-option.active .sub-options {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Container placed at top-left corner */
+.profile-container {
+    position: absolute;
+    margin-left: -400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start at the top */
+    align-items: center;
+    width: 100%;
+}
+
+/* Profile card is transparent and horizontal layout */
+.profile-card {
+    display: flex;
+    align-items: center;
+    background: transparent; /* No background */
+    padding: 10px;
+    gap: 10px; /* Spacing between icon and text */
+}
+
+/* Circle background behind the avatar icon */
+.profile-avatar {
+    width: 50px;
+    height: 50px;
+    background: #C87C8E; /* Circle background color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Actual avatar image */
+.profile-avatar img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; /* Make the image circular as well */
+    object-fit: cover;
+}
+
+/* User Info to the right of the avatar */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Name & Email Text */
+.profile-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #ffffff;
+}
+
+.profile-email {
+    font-size: 14px;
+    color: #dddddd;
+}
+
+
+
+/* Profile at top-left (already in your code) */
+.profile-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: transparent;
+}
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+}
+.profile-avatar {
+    width: 50px;
+    height: 50px;
+    background: #C87C8E; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-avatar img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #ffffff;
+}
+.profile-email {
+    font-size: 14px;
+    color: #dddddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Basic Modal Overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center; 
+    align-items: center;
+}
+
+/* Modal Content Container */
+.modal-content {
+    background: #242424;
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Close Button (X) */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Title & Paragraph inside the modal */
+.modal-content h2 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.modal-content p {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Label for the password input */
+.delete-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #ddd;
+}
+
+/* Password Input */
+.delete-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Input focus style */
+.delete-input:focus {
+    border-color: #C87C8E;
+}
+
+/* Button Container */
+.delete-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* General Button Styles */
+.delete-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background: #444;
+    color: #fff;
+}
+.cancel-btn:hover {
+    background: #555;
+}
+
+/* Confirm (Delete Account) Button */
+.confirm-btn {
+    background: #C87C8E;
+    color: #fff;
+}
+.confirm-btn:hover {
+    background: #b06879;
+}
+
+
+
+
+
+
+
+/* UPDATE PASSWORD MODAL */
+
+/* Modal Container (Overlay) */
+#updateModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    justify-content: center; 
+    align-items: center;
+}
+
+/* Modal Content Box */
+#updateModal .modal-content {
+    background: #242424;
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Close Button (X) */
+#updateModal .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Modal Title & Paragraph */
+#updateModal h2 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+#updateModal p {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Labels for Input Fields */
+.update-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #ddd;
+}
+
+/* Password Inputs */
+.update-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+.update-input:focus {
+    border-color: #C87C8E;
+}
+
+/* Button Container */
+.update-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* General Button Styles */
+.update-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background: #444;
+    color: #fff;
+}
+.cancel-btn:hover {
+    background: #555;
+}
+
+/* Save Button */
+.save-btn {
+    background: #C87C8E;
+    color: #fff;
+}
+.save-btn:hover {
+    background: #b06879;
+}
+
+
+
+
+
+
+
+
+
+/* Center the buttons horizontally */
+.logout-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Example button styling */
+.logout-buttons button {
+    background: #C87C8E;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.logout-buttons button:hover {
+    background: #b06879;
+}

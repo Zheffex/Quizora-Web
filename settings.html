@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul class="menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="create.html">Create</a></li>
+            <li><a href="management.html">User Management</a></li>
+            <li class="active"><a href="settings.html">Settings</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="settings-container">
+            
+            
+            <div class="profile-container">
+                <div class="profile-card">
+                    <!-- Icon with Circular Background -->
+                    <div class="profile-avatar">
+                        <img src="profile.png" alt="Profile Picture">
+                    </div>
+            
+                    <!-- User Info to the Right of the Icon -->
+                    <div class="profile-info">
+                        <h2 class="profile-name">John Doe</h2>
+                        <p class="profile-email">johndoe@example.com</p>
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <!-- Account Settings Panel -->
+            <div class="settings-panel">
+                <div class="settings-header">Account settings</div>
+
+                <div class="settings-option">
+                    <a href="update-password.html">
+                        <span>Update Password</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+                <div class="settings-option">
+                    <a href="delete-account.html">
+                        <span>Delete account</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+                <div class="settings-option logout">
+                    <a href="logout.html">
+                        <span>Logout</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Password Modal -->
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Password</h2>
+            <p>Enter your new password details here.</p>
+
+            <!-- Current Password -->
+            <label for="currentPassword" class="update-label">Current Password</label>
+            <input
+                type="password"
+                id="currentPassword"
+                class="update-input"
+                placeholder="Enter current password"
+            >
+
+            <!-- New Password -->
+            <label for="newPassword" class="update-label">New Password</label>
+            <input
+                type="password"
+                id="newPassword"
+                class="update-input"
+                placeholder="Enter new password"
+            >
+
+            <!-- Confirm New Password -->
+            <label for="confirmPassword" class="update-label">Confirm New Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                class="update-input"
+                placeholder="Re-enter new password"
+            >
+            
+            <!-- Action Buttons -->
+            <div class="update-buttons">
+                <button id="updateCancel" class="update-btn cancel-btn">Cancel</button>
+                <button id="updateSave" class="update-btn save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Delete Account Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Delete Account</h2>
+        <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+        
+        <!-- Password input (always visible) -->
+        <label for="deletePassword" class="delete-label">Enter password to delete:</label>
+        <input 
+            type="text" 
+            id="deletePassword" 
+            class="delete-input"
+            placeholder="Enter your password"
+        >
+
+        <!-- Action Buttons -->
+        <div class="delete-buttons">
+            <button id="deleteCancel" class="delete-btn cancel-btn">Cancel</button>
+            <button id="deleteConfirm" class="delete-btn confirm-btn">Delete Account</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Logout</h2>
+            <p>Are you sure you want to logout?</p>
+
+            <!-- Logout Action Buttons -->
+            <div class="logout-buttons">
+                <button id="logoutConfirm">Logout</button>
+                <button id="logoutCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="settings.js"></script>
+</body>
+</html>
