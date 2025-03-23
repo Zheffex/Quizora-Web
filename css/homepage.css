@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global reset and font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body holds the background image */
+body {
+    display: flex;
+    background-image: url('../media/img/background.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    background: #242424;
+    padding: 10px; 
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.logo a {
+    margin-top: 10px;
+    height: 100%;
+    display: inline-block;
+}
+
+/* Logo inside the sidebar */
+.logo img {
+    margin-top: 15px;
+    margin-left: 43px;
+    width: 50%;
+}
+
+/* Menu holds the navigation links */
+.menu {
+    margin-top: 30px;
+    list-style: none;
+    font-size: 30px;
+    padding: 0;
+    width: 100%; 
+}
+
+/* Each menu item */
+.menu li {
+    width: 100%; 
+    text-align: center; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: background 0.3s ease;
+}
+
+/* Links inside menu items */
+.menu li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Active and hovered menu item */
+.menu li.active,
+.menu li:hover {
+    background: #C87C8E;
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ✅ MODAL STYLES */
+.modal {
+    color: white;
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ MODAL CONTENT */
+.modal-content {
+    background: #2f2f2f; /* ✅ Slightly lighter than #242424 */
+
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 3px solid grey; /* ✅ Adds a border */
+}
+
+
+/* ✅ CLOSE BUTTON */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ✅ START QUIZ BUTTON */
+#startQuiz {
+    margin-top: 20px;
+    background: #32CD32; /* ✅ Lime Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#startQuiz:hover {
+    background: #2E8B57; /* ✅ A slightly darker green on hover */
+}

@@ -1,0 +1,750 @@
+
+*{
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../media/img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.quiz-header {
+    animation: slideDown .9s ease-in-out;
+    color: white;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background: #242424;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.quiz-header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.quiz-header a {
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: #2424247d;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 6px 10px;
+    border: 1px solid white;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.quiz-header a:hover {
+    border-radius: 8px;
+    border-color: #C87C8E;
+    color: #C87C8E;
+}
+
+
+
+#Add-button{
+    margin-left: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Multiple Choice */
+.dropdown {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+    width: 230px;
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 39px;
+    width: 100%;
+    padding: 10px 15px;
+    background: #242424;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover Effect */
+.dropdown-btn:hover {
+    color: #C87C8E;
+    border-color: #C87C8E; /* Lighter border */
+}
+
+/* Image Icon */
+.dropdown-btn img {
+    width: 20px;
+    height: 20px;
+    background: #2CA6A6;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    margin-top: 3px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #242424;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    font-size: 13.8px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dropdown-item img {
+    margin-left: 6px;
+    margin-right: 30px;
+    width: 20px;
+    height: 20px;
+    border-radius: 1px;
+    background: #2CA6A6;
+    padding: 1px;
+}
+
+/* Hover & Active */
+.dropdown-item:hover {
+    background: #535353;
+}
+
+
+
+/* Show Dropdown */
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Points Dropdown */
+.points-dropdown {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+    width: 120px; /* Adjust width as needed */
+}
+
+/* Points Dropdown Button */
+.points-dropdown .dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 39px;
+    width: 100%;
+    padding: 10px 15px;
+    background: #242424;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover Effect */
+.points-dropdown .dropdown-btn:hover {
+    color: #C87C8E;
+    border-color: #C87C8E; /* Lighter border */
+}
+
+/* Dropdown Menu */
+.points-dropdown .dropdown-menu {
+    margin-top: 3px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #242424;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/* Points Dropdown Items */
+.points-dropdown .dropdown-item {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: white;
+}
+
+/* Hover Effect */
+.points-dropdown .dropdown-item:hover {
+    background: #535353;
+}
+
+/* Active Selection */
+.points-dropdown .dropdown-item.active {
+    background: #60606090; /* Light purple for active selection */
+}
+
+/* Show Points Dropdown */
+.points-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Timer Dropdown */
+.timer-dropdown {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+    width: 160px;
+}
+
+/* Same style as other dropdowns */
+.timer-dropdown .dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 39px;
+    width: 90%;
+    padding: 10px 15px;
+    background: #242424;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.timer-dropdown .dropdown-btn:hover {
+    color: #C87C8E;
+    border-color: #C87C8E
+    
+}
+
+/* Timer Dropdown Menu */
+.timer-dropdown .dropdown-menu {
+    margin-top: 3px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 90%;
+    background: #242424;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Timer Dropdown Items */
+.timer-dropdown .dropdown-item {
+    font-size: 13.8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.timer-dropdown .dropdown-item:hover {
+    background: #535353;
+}
+
+.timer-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, -50%); /* Starts 20% below */
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%); /* Moves to the center */
+        opacity: 1;
+    }
+}
+
+/* Multiple choice Container */
+.quiz-containers {
+    animation: slideUp 0.7s ease-in;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    z-index: -1;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: #3A1C4D;
+    height: 460px;
+    width: 750px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.269);
+    color: white;
+    margin: auto; /* Centers the container */
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Question Section */
+.question-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-box {
+    width: 100%;
+    height: 230px;
+    padding: 15px;
+    font-size: 20px;
+    border: 2px solid #420260;
+    border-radius: 10px;
+    background: #4A235A;
+    color: white;
+    resize: none;
+    outline: none;
+    text-align: center; 
+}
+
+.question-box::placeholder {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+/* Answer Section */
+.answer-section-Multiple-choice {
+    margin-top: 20px;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px; /* Space between grid items */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Answer Boxes */
+.answer-box {
+    display: flex;
+    align-items: center;
+    background: #5A2B6D;
+    padding: 12px;
+    border-radius: 8px;
+    width: 280px;
+    height: 60px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Answer Inputs */
+.answer-box input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    outline: none;
+}
+
+/* Checkbox  */
+.correct-btn {
+    width: 20px; /* Adjust size */
+    height: 20px;
+    cursor: pointer;
+    accent-color: #2CA6A6; /* Changes checkbox color */
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+    appearance: none; /* Remove default checkbox styling */
+    border: 2px solid #2CA6A6; /* Border color */
+    border-radius: 50%; /* Makes it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Custom checkmark when checked */
+.correct-btn:checked::before {
+    content: "✔"; /* Checkmark symbol */
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    font-weight: bold;
+}
+
+.correct-btn:checked {
+    background-color: #2CA6A6; /* Fill color when checked */
+    transform: scale(1.2); /* Slightly enlarge when checked */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fill in the Blanks */
+#Fill-in-the-Blank {
+    display: flex;
+    flex-direction: row; /* Align left & right */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3A1C4D;
+    padding: 30px;
+    border-radius: 15px;
+    height: 420px;
+    width: 900px;
+    max-width: 90%;
+    margin: auto;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    gap: 30px;
+}
+
+/* Question Section */
+#Fill-in-the-Blank .question-section {
+    flex: 1; /* Give more space to the question */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Fill-in-the-Blank .question-box {
+    width: 100%;
+    height: 250px;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #6A1B9A;
+    border-radius: 10px;
+    background: #4A235A;
+    color: white;
+    resize: none;
+    outline: none;
+    text-align: center;
+}
+
+/* Answer Section */
+#Fill-in-the-Blank .answer-section h3{
+    margin-top: 20px;
+    display: flex;
+    color: #146637;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Answer Box */
+#Fill-in-the-Blank .answer-box {
+    margin-top: -10px;
+    width: 350px;
+    display: flex;
+    margin-left: 29%;
+    justify-content: center;
+    align-items: center;
+    background: #5A2B6D;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Answer Input */
+#Fill-in-the-Blank input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    outline: none;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+#True-False {
+    display: flex;
+    flex-direction: row; /* Align left & right */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3A1C4D;
+    padding: 30px;
+    border-radius: 15px;
+    height: 360px;
+    width: 900px;
+    max-width: 90%;
+    margin: auto;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    gap: 30px;
+}
+
+
+
+
+/* Answer Section */
+.answer-section-True-False{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* True or False Answer Box */
+.true-false-answer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5A2B6D;
+    padding: 12px;
+    border-radius: 8px;
+    width: 200px;
+    height: 50px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Center Label Text */
+.true-false-answer label {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.true-false-answer:hover {
+    background: #146637;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* OPEN ENDED */
+#open-ended-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #3A1C4D;
+    padding: 30px;
+    border-radius: 12px;
+    height: 450px;
+    max-width: 800px;
+    margin: auto;
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Center Question */
+#open-ended-container .question-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Question Box */
+#open-ended-question {
+    width: 100%;
+    height: 200px; /* Increased height */
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #6A1B9A;
+    border-radius: 10px;
+    background: #4A235A;
+    color: white;
+    resize: none;
+    outline: none;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Answer Section */
+#open-ended-container .answer-section {
+    color: #146637;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+
+/* Answer Label */
+#open-ended-container .answer-section h3 {
+    margin: 10px auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Answer Box */
+#open-ended-container .answer-box {
+    width: 100%;
+    height: 70%;
+    padding: 15px;
+    border-radius: 10px;
+    background: #5A2B6D;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#open-ended-container .answer-box ::placeholder {
+    color: rgba(255, 255, 255, 0.505);
+}
+
+/* Answer Input */
+#open-ended-answer {    
+    width: 100%;
+    height: 130px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    resize: none;
+    text-align: left;
+}
