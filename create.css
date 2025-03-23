@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global reset and font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body holds the background image */
+body {
+    display: flex;
+    background-image: url('background.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background: #242424;
+    padding: 10px; 
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.logo a {
+    margin-top: 10px;
+    height: 100%;
+    display: inline-block;
+}
+
+/* Logo inside the sidebar */
+.logo img {
+    margin-top: 15px;
+    margin-left: 43px;
+    width: 50%;
+}
+
+/* Menu holds the navigation links */
+.menu {
+    margin-top: 30px;
+    list-style: none;
+    font-size: 30px;
+    padding: 0;
+    width: 100%; 
+}
+
+/* Each menu item */
+.menu li {
+    width: 100%; 
+    text-align: center; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: background 0.3s ease;
+}
+
+/* Links inside menu items */
+.menu li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Active and hovered menu item */
+.menu li.active,
+.menu li:hover {
+    background: #C87C8E;
+    color: #000000;
+}
+
+
+
+
+/* Main content holds everything outside the sidebar */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(-50px); /* Start position (above screen) */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Show main content when class is added */
+.main-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+/* Move user info to the right corner with circular background */
+.user-info {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.user-info i{
+    margin-right: 10px;
+}
+
+.user-info a {
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* FontAwesome Icon */
+.user-info a span {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Dropdown Menu */
+.user-dropdown {
+    width: 160px !important; /* Forces the width */
+    display: none;
+    position: absolute;
+    top: 45px; /* Ensures proper spacing below the icon */
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    width: 160px; /* Set a fixed width */
+    z-index: 1000;
+    padding: 8px 0;
+    text-align: left; 
+}
+
+/* Dropdown Items */
+.user-dropdown a {
+    max-width: 200px;
+    margin-top: 5px;
+    display: block;
+    border-radius: 6px;
+    margin-left: 2.5px;
+    width: 155px;
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    text-align: left; 
+    white-space: nowrap; 
+}
+
+
+/* Hover Effect */
+.user-dropdown a:hover {
+    margin-left: 2.5px;
+    border-radius: 6px;
+    width: 155px;
+    background-color: #e5e5e5;
+}
+
+/* Show dropdown when active */
+.user-info.active .user-dropdown {
+    display: block;
+}
+
+
+/* Style for the Create Quiz widget */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.widget-container {
+    animation: scaleIn 0.6s ease-out;
+    margin-top: 20px;
+    height: 100px;
+    width: 200px;
+    background-color: #242424;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.widget-container i{
+    margin-top: 28px;
+}
+
+/* Style for the Create Quiz widget */
+.widget{
+    text-decoration: none;
+    color: #C87C8E;
+    transition: color 0.3s ease;
+}
+.widget:hover {
+    color: rgba(109, 227, 243, 0.3);
+    
+}
+.widget div{
+    height: 100px;
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Modal Header */
+.modal h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Modal Background (Initially Hidden & Covers Everything) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); 
+    justify-content: center; 
+    align-items: center;
+}
+
+/* Modal Content (Centered) */
+.modal-content {
+    background: #242424;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Input Field */
+#quizTitle {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #333;
+    color: white;
+    text-align: center;
+}
+
+
+#quizTitle::placeholder {
+    color: #ccc;
+}
+
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    margin-top: 15px;
+}
+
+button {
+    width: 150px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 0 5px; 
+}
+
+/* Cancel Button */
+#cancelBtn {
+    background: #a0a0a0;
+    color: black;
+}
+
+#cancelBtn:hover {
+    background: #888;
+    transform: scale(1.05);
+}
+
+/* Make Quiz Button */
+#makeQuizBtn {
+    background: #4CAF50;
+    color: white;
+}
+
+#makeQuizBtn:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modal Background */
+.modal-Quiz1 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Darker background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content1 {
+    background: #242424; /* Dark background */
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content1 p {
+    color: white;
+}
+
+/* Modal Header */
+.modal-content1 h2 {
+    color: #ffffff; /* White text */
+    margin-bottom: 15px;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* White close button */
+}
+
+/* Modal Buttons */
+.modal-buttons1 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.modal-buttons1 button {
+    width: 150px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 0 5px;
+}
+
+/* Edit Button */
+.modal-buttons1 button:first-child {
+    background: #C87C8E; /* Orange */
+    color: white;
+}
+
+.modal-buttons1 button:first-child:hover {
+    background: #C87C8E;
+    transform: scale(1.05);
+}
+
+/* Answer Button */
+.modal-buttons1 button:last-child {
+    background: #4CAF50; /* Green */
+    color: white;
+}
+
+.modal-buttons1 button:last-child:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main Quiz Container - Left-Aligned */
+.quiz-container {
+    height: 400px;
+    width: calc(100vw - 200px); /* Prevents overlap with sidebar */
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 200px;
+    
+    /* Fade-in Animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Quiz Title */
+.quiz-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Flex container for title and delete button */
+.quiz-header {
+    display: flex;
+    justify-content: space-between; /* Pushes items apart */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Styles for the delete button */
+.delete-btn {
+    height: 40px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Icon inside the button */
+.delete-btn i {
+    margin-right: 25px;
+    font-size: 18px;
+    color: black;
+}
+
+/* Hover effect */
+.delete-btn:hover {
+    background: #a0a0a0;
+}
+
+
+
+
+
+
+
+
+/* Align quiz details and checkbox */
+.quiz-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes checkbox to the right */
+    width: 100%; /* Ensures it takes full width */
+}
+
+/* Checkbox Styling */
+.quiz-checkbox {
+    width: 18px;
+    height: 18px;
+    appearance: none; /* Removes default browser styling */
+    border: 2px solid #fff; /* White border */
+    border-radius: 50%; /* Makes it circular */
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Custom Checkmark Effect */
+.quiz-checkbox:checked {
+    background-color: #4CAF50; /* Green background when checked */
+    border-color: #4CAF50;
+}
+
+/* Checkmark Inner Dot */
+.quiz-checkbox:checked::before {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+
+/* Quiz List - Left Aligned */
+.quiz-list {
+    display: flex;
+    flex-direction: row; /* Align items in a row */
+    align-items: flex-start; /* Align content to the left */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.quiz-list a {
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Individual Quiz Items */
+.quiz-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 250px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure Empty Message is Centered */
+.empty-message {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Adjust Image Centering */
+.empty-message img {
+    width: 180px;
+    height: 180;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Text Styling */
+.empty-message p {
+    font-size: 16px;
+    color: #ccc;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+
+/* Quiz Title */
+.quiz-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Quiz Info */
+.quiz-info {
+    font-size: 14px;
+    color: #ddd;
+}
+
