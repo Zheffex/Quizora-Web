@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZORA</title>
+    <link rel="icon" href="../media/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/frontpage.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">QUIZORA</h1>
+        <div class="auth-buttons">
+            <a href="login.html" class="login">Log in</a>   
+            <a href="signup.html" class="signup">Sign up</a>
+        </div>
+    </header>
+    <main class="intro">
+        <h2 class="subheading">Meet Quizora: <span class="highlight">Made Learning Better</span></h2>
+        <h1 class="main-heading">“Where Knowledge Meets Fun!”</h1>
+        <p class="description">Specifically designed and meticulously crafted for the development and success of future professionals.</p>
+    </main>
+</body>
+</html>

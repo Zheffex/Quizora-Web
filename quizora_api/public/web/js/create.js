@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (allQuizzes.length === 0) {
             quizList.innerHTML = `
                 <div class="empty-message">
-                    <img src="emptyquiz.png" alt="Empty">
+                    <img src="../media/img/emptyquiz.png" alt="Empty">
                     <p>No quizzes available. Create a new quiz to get started!</p>
                 </div>`;
         }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizora</title>
+    <link rel="icon" href="../media/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/editquestion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+
+    <div class="quiz-container">
+        <div class="quiz-header" >
+            <a href="Quizcreation.html" id="back-button">
+                <i class="fa-solid fa-angle-left"></i>
+            </a>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <img src="../media/img/multiple.png" alt="Multiple Choice">
+                    <span>Multiple Choice</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            
+                <div class="dropdown-menu">
+                    <div class="dropdown-item active">
+                        <img src="../media/img/multiple.png" alt="Multiple Choice">
+                        <span>Multiple Choice</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <img src="../media/img/fill.png" alt="Fill in the Blank">
+                        <span>Fill in the Blank</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <img src="../media/img/True.png" alt="True or False">
+                        <span>True or False</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="points-dropdown">
+                <button class="dropdown-btn">
+                    <span>1 point</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">1 point</div>
+                    <div class="dropdown-item">2 points</div>
+                    <div class="dropdown-item">3 points</div>
+                    <div class="dropdown-item">4 points</div>
+                    <div class="dropdown-item">5 points</div>
+                    <div class="dropdown-item">6 points</div>
+                    <div class="dropdown-item">7 points</div>
+                    <div class="dropdown-item">8 points</div>
+                    <div class="dropdown-item">9 points</div>
+                    <div class="dropdown-item">10 points</div>
+                </div>
+            </div>
+
+
+            <div class="timer-dropdown">
+                <button class="dropdown-btn">
+                    <span>No Timer</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">No Timer</div>
+                    <div class="dropdown-item">10 seconds</div>
+                    <div class="dropdown-item">20 seconds</div>
+                    <div class="dropdown-item">30 seconds</div>
+                    <div class="dropdown-item">45 seconds</div>
+                    <div class="dropdown-item">1 minute</div>
+                    <div class="dropdown-item">2 minutes</div>
+                    <div class="dropdown-item">5 minutes</div>
+                </div>
+            </div>
+            
+
+            <a href="Quizcreation.html" id="Add-button">
+                <i class="fa-solid fa-plus"></i>
+                Add Question
+            </a>
+    
+        </div>
+    </div>
+
+
+
+
+    <!-- MULTIPLE CHOICE -->
+    <div class="quiz-containers" id="Multiple-Choice" style="display: none;">
+        <div class="question-section">
+            <textarea class="question-box" placeholder="Type question here" maxlength="300"></textarea>
+        </div>
+        <div class="answer-section-Multiple-choice">
+            <div class="answer-box">
+                <input type="text" placeholder="Type answer option here">
+                <input type="radio" name="correct-answer" class="correct-btn">
+            </div>
+            <div class="answer-box">
+                <input type="text" placeholder="Type answer option here">
+                <input type="radio" name="correct-answer" class="correct-btn">
+            </div>
+            <div class="answer-box">
+                <input type="text" placeholder="Type answer option here">
+                <input type="radio" name="correct-answer" class="correct-btn">
+            </div>
+            <div class="answer-box">
+                <input type="text" placeholder="Type answer option here">
+                <input type="radio" name="correct-answer" class="correct-btn">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- FILL IN THE BLANK -->
+    <div class="quiz-containers" id="Fill-in-the-Blank" style="display: none;">
+        <div class="question-section">
+            <textarea class="question-box" placeholder="Type question here" maxlength="300"></textarea>
+        </div>
+        <div class="answer-section">
+            <h3>Correct Answer</h3>
+            <div class="answer-box">
+                <input type="text" placeholder="Type the correct answer here">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- TRUE OR FALSE -->
+    <div class="quiz-containers" id="True-False" style="display: none;">
+        <div class="question-section">
+            <textarea class="question-box" placeholder="Type your question here" maxlength="300"></textarea>
+        </div>
+        <div class="answer-section-True-False">
+            <div class="true-false-answer" onclick="selectAnswer('true-option')">
+                <label for="true-option" id="true-label">True</label>
+                <input type="radio" id="true-option" name="true-false-answer" class="correct-btn" value="True" hidden>
+            </div>
+            <div class="true-false-answer" onclick="selectAnswer('false-option')">
+                <label for="false-option" id="false-label">False</label>
+                <input type="radio" id="false-option" name="true-false-answer" class="correct-btn" value="False" hidden>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+    <script src="../js/editquestion.js"></script>
+    <script src="../js/loading.js"></script>
+</html>
