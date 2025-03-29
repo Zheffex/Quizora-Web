@@ -21,14 +21,14 @@
 
     <div class="quiz-container">
         <div class="quiz-header">
-            <a href="create.html">
+            <a href="create.php">
                 <i class="fa-solid fa-angle-left"></i>
                 Back
             </a>
     
             <span class="quiz-title">Your Quiz Title</span>
     
-            <a href="create.html" id="save-quiz-progress">
+            <a href="create.php" id="save-quiz-progress">
                 <i class="fa-solid fa-floppy-disk"></i>
                 Save
             </a>
@@ -42,21 +42,21 @@
         <div class="question-options">
 
             <div class="question-type" onclick="setQuestionType('Multiple Choice', 'multiple.png')">
-                <a href="editquestion.html">
+                <a href="editquestion.php">
                     <img src="../media/img/Multiple.png" alt="Multiple-choice">
                     <p>Multiple Choice</p>
                 </a>
             </div>
             
             <div class="question-type" onclick="setQuestionType('Fill in the Blank', 'fill.png')">
-                <a href="editquestion.html">
+                <a href="editquestion.php">
                     <img src="../media/img/Fill.png" alt="Fill-blank">
                     <p>Fill in the Blank</p>
                 </a>
             </div>
             
             <div class="question-type" onclick="setQuestionType('True or False', 'True.png')">
-                <a href="editquestion.html">
+                <a href="editquestion.php">
                     <img src="../media/img/True.png" alt="True-false">
                     <p>True or False</p>
                 </a>
@@ -71,7 +71,7 @@
         <h2>Quiz Overview</h2>
         <div class="button-container">
 
-                <a href="editquestion.html">
+                <a href="editquestion.php">
                 <i class="fa-solid fa-plus"></i> Add Question
                 </a>
 

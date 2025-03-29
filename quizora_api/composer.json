@@ -1,0 +1,9 @@
+{
+    "name": "wolven168/quizora-api",
+    "description": "API for Quizora",
+    "type": "project",
+    "require": {
+        "firebase/php-jwt": "^6.11"
+    },
+    "license": "MIT"
+}

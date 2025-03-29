@@ -1,13 +1,5 @@
 <?php
 // quizora_api/public/web/php/signup.php
-
-include_once __DIR__ . '/functions/session.php';
-
-// Check if user is already logged in
-if (checkAuth()) {
-    header("Location: homepage.php"); // Redirect to homepage if already logged in
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

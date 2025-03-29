@@ -11,8 +11,8 @@
     <header class="header">
         <h1 class="logo">QUIZORA</h1>
         <div class="auth-buttons">
-            <a href="login.html" class="login">Log in</a>   
-            <a href="signup.html" class="signup">Sign up</a>
+            <a href="login.php" class="login">Log in</a>   
+            <a href="signup.php" class="signup">Sign up</a>
         </div>
     </header>
     <main class="intro">

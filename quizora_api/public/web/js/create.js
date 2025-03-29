@@ -1,3 +1,5 @@
+// quizora_api/public/web/js/create.js
+console.log('JS Loaded'); // Checks if js is loaded through console logs
 //animation
 document.addEventListener("DOMContentLoaded", function() {
     const mainContent = document.querySelector(".main-content");
@@ -122,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("allSavedQuizzes", JSON.stringify(savedQuizzes));
         localStorage.removeItem("quizzes");
 
-        // ✅ Redirect back to create.html
-        window.location.href = "create.html";
+        // ✅ Redirect back to create.php
+        window.location.href = "create.php";
     }
 
     function deleteQuiz() {
@@ -324,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("quizTitle", selectedQuiz.title);
 
         // ✅ Redirect to Quiz Creation page with correct quiz ID
-        window.location.href = `Quizcreation.html?quizId=${quizId}`;
+        window.location.href = `Quizcreation.php?quizId=${quizId}`;
     }
 
     // ✅ Attach event listeners for modal and edit button
@@ -352,6 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to handle form submission
     quizForm.addEventListener("submit", function (event) {
+		console.log('Button clicked'); // Check if this appears
         event.preventDefault(); // Prevents page reload
 
         const quizTitle = quizTitleInput.value.trim();
@@ -373,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Save quiz title to localStorage
         localStorage.setItem("quizTitle", quizTitle);
-        window.location.href = "Quizcreation.html"; // Redirect to the quiz creation page
+        window.location.href = "Quizcreation.php"; // Redirect to the quiz creation page
     });
 
     // Reset error message when typing

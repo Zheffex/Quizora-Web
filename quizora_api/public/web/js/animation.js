@@ -1,3 +1,4 @@
+// quizora_api/public/web/js/animation.js
 document.addEventListener("DOMContentLoaded", function() {
     const mainContent = document.querySelector(".main-content");
 

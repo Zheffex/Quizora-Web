@@ -1,53 +1,111 @@
 <?php
-// models/Quiz.php
+// quizora_api/models/Quiz.php
 
-class Location {
+class Quiz {
     public $id;
-    public $name;
-    public $address;
-    public $latitude;
-    public $longitude;
-    public $rating;
+    public $title;
     public $description;
+    public $user_id;
+    public $category;   
+	public $questions;  
 
-    public function __construct($id = null, $name = "", $address = "", $latitude = 0.0, $longitude = 0.0, $rating = 0, $description = "") {
+    public function __construct($id = null, $title = "", $description = "", $user_id = null, $questions = null, $category = null) {
         $this->id = $id;
-        $this->name = $name;
-        $this->address = $address;
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
-        $this->rating = $rating;
+        $this->title = $title;
         $this->description = $description;
+        $this->user_id = $user_id;
+        $this->category = $category;
+        $this->questions = $questions;
     }
 
-    public static function getLocationsWithinRadius($latitude, $longitude, $radius) {
+    // Add a new quiz
+    public static function addQuiz($title, $description, $user_id, $questions = null, $category = null) {
         global $pdo;
 
-        $sql = "SELECT * FROM locations";
+        $sql = "INSERT INTO quizzes (title, description, user_id, category, questions) 
+                VALUES (:title, :description, :user_id, :category, :questions)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $locations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt->execute([
+                ':title' => $title,
+                ':description' => $description,
+                ':user_id' => $user_id,
+				':category' => $category,
+                ':questions' => $questions ? json_encode($questions) : null  // Convert questions to JSON if provided
+            ]);
+            return json_encode(["success" => true, "message" => "Quiz added successfully"]);
+        } catch (PDOException $e) {
+            return json_encode(["success" => false, "message" => "Error: " . $e->getMessage()]);
+        }
+    }
 
-        $filteredLocations = [];
-        foreach ($locations as $location) {
-            // Calculate the distance using the Haversine formula
-            $distance = self::haversine($latitude, $longitude, $location['latitude'], $location['longitude']);
-            if ($distance <= $radius) {
-                $filteredLocations[] = $location;
+    // Get quizzes by user (updated to include questions and category)
+    public static function getQuizzesByUser($user_id) {
+        global $pdo;
+
+        $sql = "SELECT id, title, description, category, questions FROM quizzes WHERE user_id = :user_id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':user_id' => $user_id]);
+
+        // Fetch and return the quizzes as an associative array, decode questions as JSON
+        $quizzes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($quizzes as &$quiz) {
+            $quiz['questions'] = json_decode($quiz['questions'], true);  // Decode questions JSON
+        }
+        return $quizzes;
+    }
+
+    // Search quizzes by field
+    public static function searchQuizzesByField($searchTerm, $searchField) {
+		global $pdo;
+
+		// Prepare the SQL query to search for quizzes where the chosen field contains the search term
+		$sql = "SELECT id, title, description, category, questions FROM quizzes WHERE $searchField LIKE :searchTerm";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([':searchTerm' => '%' . $searchTerm . '%']);
+
+		// Fetch and return the results as an associative array
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
+	// Update quiz details and questions
+    public static function updateQuiz($quiz_id, $title, $description, $category, $questions) {
+        global $pdo;
+
+        // Update quiz details
+        $sql = "UPDATE quizzes SET title = :title, description = :description, category = :category WHERE id = :quiz_id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':title' => $title,
+            ':description' => $description,
+            ':category' => $category,
+            ':quiz_id' => $quiz_id
+        ]);
+
+        // Now update the questions if provided
+        if ($questions !== null) {
+            // Remove all old questions for the quiz (you may want to add a soft delete or archive option)
+            $deleteSql = "DELETE FROM quiz_questions WHERE quiz_id = :quiz_id";
+            $deleteStmt = $pdo->prepare($deleteSql);
+            $deleteStmt->execute([':quiz_id' => $quiz_id]);
+
+            // Add the new questions
+            foreach ($questions as $question) {
+                $insertSql = "INSERT INTO quiz_questions (quiz_id, type, question, answer, options, timer, points) VALUES (:quiz_id, :type, :question, :answer, :options, :timer, :points)";
+                $insertStmt = $pdo->prepare($insertSql);
+                $insertStmt->execute([
+                    ':quiz_id' => $quiz_id,
+                    ':type' => $question['type'],
+                    ':question' => $question['question'],
+                    ':answer' => $question['answer'],
+                    ':options' => json_encode($question['options']),
+                    ':timer' => $question['timer'],
+                    ':points' => $question['points']
+                ]);
             }
         }
 
-        return $filteredLocations;
-    }
-
-    private static function haversine($lat1, $lon1, $lat2, $lon2) {
-        $R = 6371;  // Earth radius in kilometers
-        $dLat = deg2rad($lat2 - $lat1);
-        $dLon = deg2rad($lon2 - $lon1);
-        $a = sin($dLat / 2) * sin($dLat / 2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($dLon / 2) * sin($dLon / 2);
-        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-        $distance = $R * $c;  // Distance in kilometers
-        return $distance;
+        return ["success" => true, "message" => "Quiz and questions updated successfully."];
     }
 }
 ?>

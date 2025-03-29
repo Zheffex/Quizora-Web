@@ -1,3 +1,4 @@
+// quizora_api/public/web/js/settings.js
 document.addEventListener("DOMContentLoaded", function() {
     // 1) Show the main content with animation
     const mainContent = document.querySelector(".main-content");
@@ -11,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function() {
     //shows all the modal.
     // 
     // 2) Settings panel links
-    const updateLink = document.querySelector(".settings-option a[href='update-password.html']");
-    const deleteLink = document.querySelector(".settings-option a[href='delete-account.html']");
-    const logoutLink = document.querySelector(".settings-option a[href='logout.html']");
+    const updateLink = document.querySelector(".settings-option a[href='update-password.php']");
+    const deleteLink = document.querySelector(".settings-option a[href='delete-account.php']");
+    const logoutLink = document.querySelector(".settings-option a[href='logout.php']");
 
     // 3) Modals
     const updateModal = document.getElementById("updateModal");
@@ -102,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
         deletePassword.value = "";
 
         // Redirect to login page after deletion
-        window.location.href = "login.html";
+        window.location.href = "login.php";
     });
 
     // Close modal when clicking outside content
@@ -131,7 +132,7 @@ function handleLogoutModal() {
     const logoutConfirm = document.getElementById("logoutConfirm");
     const logoutCancel = document.getElementById("logoutCancel");
     const closeButton = logoutModal.querySelector(".close");
-    const logoutLink = document.querySelector(".settings-option a[href='logout.html']");
+    const logoutLink = document.querySelector(".settings-option a[href='logout.php']");
     
     // Notification area (Optional: Add a div with id="logoutMessage" in your HTML)
     const logoutMessage = document.createElement("div");
@@ -156,8 +157,9 @@ function handleLogoutModal() {
     
         // Delay logout for 1.5 seconds to show message
         setTimeout(() => {
-            window.location.href = "login.html"; // Redirect to login page
-            history.replaceState(null, null, "login.html"); // Prevent going back
+			logout();
+            window.location.href = "login.php"; // Redirect to login page
+            history.replaceState(null, null, "login.php"); // Prevent going back
         }, 1500);
     }
     
@@ -182,6 +184,26 @@ function handleLogoutModal() {
         if (event.target === logoutModal) {
             closeModal();
         }
+    });
+}
+
+// The official logout method
+function logout() {
+    fetch('/quizora_api/public/web/php/functions/logout.php', {
+        method: 'GET', // Use GET method for logging out
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+        if (data.success) {
+            // Redirect to homepage or login page after successful logout
+            window.location.href = '/login.php';
+        } else {
+            alert('Logout failed: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error logging out:', error);
     });
 }
 

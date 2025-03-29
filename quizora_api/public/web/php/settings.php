@@ -1,3 +1,6 @@
+<?php
+// quizora_api/public/web/php/settings.php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +14,7 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="logo">
-            <a href="homepage.html">
-                <img src="../media/img/logo.png" alt="Logo">
-            </a>
-        </div>
-        <ul class="menu">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="create.html">Create</a></li>
-            <li><a href="management.html">User Management</a></li>
-            <li class="active"><a href="settings.html">Settings</a></li>
-        </ul>
-    </div>
+    <?php include_once("./fragments/sidebar.php")?>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -52,21 +43,21 @@
                 <div class="settings-header">Account settings</div>
 
                 <div class="settings-option">
-                    <a href="update-password.html">
+                    <a href="update-password.php">
                         <span>Update Password</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
 
                 <div class="settings-option">
-                    <a href="delete-account.html">
+                    <a href="delete-account.php">
                         <span>Delete account</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
 
                 <div class="settings-option logout">
-                    <a href="logout.html">
+                    <a href="functions/logout.php">
                         <span>Logout</span>
                         <i class="fa-solid fa-chevron-right"></i>
                     </a>

@@ -1,3 +1,6 @@
+<?php
+// quizora_api/public/web/php/dash.php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
     <div class="header">
         <h2>User Dashboard</h2>
 
-        <a href="dashboard.html">
+        <a href="dashboard.php">
         <button class="back-button">RETURN</button>
         </a>
 

@@ -1,3 +1,4 @@
+// quizora_api/public/web/js/loading.js
 //QUIZ NAME //QUIZCREATION
 document.addEventListener("DOMContentLoaded", function () {
     const quizTitle = localStorage.getItem("quizTitle"); // Get stored title
@@ -97,11 +98,43 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("quizzes");
             localStorage.removeItem("selectedQuizId"); // Reset selected quiz
 
-            // ✅ Redirect to create.html
-            window.location.href = "create.html";
+            // ✅ Redirect to create.php
+            window.location.href = "create.php";
         });
     }
 });
+
+function addQuiz() {
+    const title = document.getElementById('quiz-title').value;
+    const description = document.getElementById('quiz-description').value;
+
+    const data = {
+        title: title,
+        description: description
+    };
+
+    fetch('/quizora_api/api/quizzes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            alert('Quiz added successfully!');
+            // Optionally redirect or refresh the page
+        } else {
+            alert('Failed to add quiz: ' + result.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while adding the quiz.');
+    });
+}
+
 
 
 
@@ -121,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // back button
 // 
 document.addEventListener("DOMContentLoaded", function () {
-    const backButton = document.querySelector(".quiz-header a[href='create.html']");
+    const backButton = document.querySelector(".quiz-header a[href='create.php']");
 
     if (backButton) {
         backButton.addEventListener("click", function (event) {
@@ -131,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (userChoice) { 
                 localStorage.removeItem("quizzes"); // ✅ Clears progress
-                window.location.href = "create.html"; // ✅ Redirects to create page
+                window.location.href = "create.php"; // ✅ Redirects to create page
             }
         });
     }
@@ -362,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("quizzes", JSON.stringify(savedQuizzes));
 
         // ✅ Stay on the page, don't redirect
-        window.location.href = "Quizcreation.html";
+        window.location.href = "Quizcreation.php";
 
     });
 });
@@ -383,14 +416,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // ✅ Function to store selected question type & redirect //QUIZCREATION
 function setQuestionType(type) {
     localStorage.setItem("selectedQuestionType", type); // Store selected type
-    window.location.href = "EditQuestion.html"; // Redirect to edit page
+    window.location.href = "EditQuestion.php"; // Redirect to edit page
 }
 
-// ✅ Loads the correct quiz layout on EditQuestion.html
+// ✅ Loads the correct quiz layout on EditQuestion.php
 document.addEventListener("DOMContentLoaded", function () {
     const currentPage = window.location.pathname.split("/").pop();
 
-    if (currentPage === "EditQuestion.html") {
+    if (currentPage === "EditQuestion.php") {
         const selectedType = localStorage.getItem("selectedQuestionType") || "Multiple Choice";
 
         // Hide all layouts initially
@@ -453,7 +486,7 @@ window.addEventListener("load", function () {
         document.getElementById("loading-screen").style.display = "none";
         document.querySelector(".content").style.display = "block";
     } else {
-        // Show loading screen only when first entering editquestion.html
+        // Show loading screen only when first entering editquestion.php
         document.getElementById("loading-screen").style.display = "block";
         document.querySelector(".content").style.display = "none";
     }

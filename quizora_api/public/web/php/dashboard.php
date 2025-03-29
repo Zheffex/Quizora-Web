@@ -1,3 +1,6 @@
+<?php
+// quizora_api/public/web/php/dashboard.php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,19 +13,7 @@
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="logo">
-            <a href="homepage.html">
-            <img src="../media/img/logo.png" alt="Logo">
-            </a>
-        </div>
-        <ul class="menu">
-            <li class="active"> <a href="dashboard.html">Dashboard</a></li>
-            <li><a href="create.html">Create</a></li>
-            <li><a href="management.html">User Management</a></li>
-            <li><a href="settings.html">Settings</a></li>
-        </ul>
-    </div>
+    <?php include_once("./fragments/sidebar.php")?>
 
     <div class="main-content">
         <div class="dashboard">
@@ -30,7 +21,7 @@
 
             <div class="stats">
                 <div class="card">
-                    <a href="dash.html">
+                    <a href="dash.php">
                     <div>    
                     <i class="fa-solid fa-users"></i>
                     <p>Users</p>

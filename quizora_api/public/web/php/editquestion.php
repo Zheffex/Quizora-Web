@@ -1,3 +1,6 @@
+<?php
+// quizora_api/public/web/php/editquestion.php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
 
     <div class="quiz-container">
         <div class="quiz-header" >
-            <a href="Quizcreation.html" id="back-button">
+            <a href="Quizcreation.php" id="back-button">
                 <i class="fa-solid fa-angle-left"></i>
             </a>
             
@@ -83,7 +86,7 @@
             </div>
             
 
-            <a href="Quizcreation.html" id="Add-button">
+            <a href="Quizcreation.php" id="Add-button">
                 <i class="fa-solid fa-plus"></i>
                 Add Question
             </a>

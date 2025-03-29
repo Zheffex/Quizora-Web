@@ -1,3 +1,6 @@
+<?php
+// quizora_api/public/web/php/create.php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,19 +13,7 @@
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="logo">
-            <a href="homepage.html">
-            <img src="../media/img/logo.png" alt="Logo">
-            </a>
-        </div>
-        <ul class="menu">
-            <li> <a href="dashboard.html">Dashboard</a></li>
-            <li class="active"><a href="create.html">Create</a></li>
-            <li><a href="management.html">User Management</a></li>
-            <li><a href="settings.html">Settings</a></li>
-        </ul>
-    </div>
+    <?php include_once("./fragments/sidebar.php")?>
 
     <div class="main-content">
         <header>
@@ -34,12 +25,12 @@
                     </a>
 
                     <div class="user-dropdown" id="dropdown-menu">
-                    <a href="settings.html">
+                    <a href="settings.php">
                         <i class="fa-solid fa-user"></i>
                         View Profile
                     </a>
 
-                    <a href="Settings.html">
+                    <a href="Settings.php">
                         <i class="fa-solid fa-gear"></i>
                         Settings
                     </a>
@@ -50,7 +41,7 @@
 
         <section class="dashboard-widgets">
             <div class="widget-container" id="createQuizBtn">
-                <a href="Quizcreation" class="widget">
+                <a href="Quizcreation.php" class="widget">
                     <div>
                     <i class="fas fa-folder-plus"></i>
                     <h3>Create Quiz</h3>

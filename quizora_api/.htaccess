@@ -1,4 +1,7 @@
+# quizora_api/.htaccess
 RewriteEngine On
+RewriteBase /quizora_api/
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^api/(.*)$ api.php [L,QSA]

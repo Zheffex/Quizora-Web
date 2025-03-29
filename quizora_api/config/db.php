@@ -1,8 +1,8 @@
 <?php
-// config/db.php
+// quizora/config/db.php
 
 $host = 'localhost'; // or your database host
-$dbname = 'bitespot_db';
+$dbname = 'quizora_db';
 $username = 'root';  // change this if you use a different MySQL username
 $password = '';  // change this if you use a password
 
